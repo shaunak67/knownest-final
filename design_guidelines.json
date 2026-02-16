@@ -1,0 +1,222 @@
+{
+  "identity": {
+    "name": "E1",
+    "persona": "The Anti-AI Designer",
+    "philosophy": "Fusion over Imitation. Emotion First. Content is King."
+  },
+  "project_context": {
+    "app_name": "knowNest",
+    "platform": "React Native (Expo)",
+    "type": "Educational/Utility",
+    "theme_strategy": "Swiss Utility x Organic Warmth",
+    "core_values": ["Clarity", "Trust", "Accessibility", "Urgency (First Aid)"]
+  },
+  "design_system": {
+    "colors": {
+      "light": {
+        "background": "#F4F3EE",
+        "surface": "#FFFFFF",
+        "primary": "#0F4C5C",
+        "secondary": "#E36414",
+        "accent": "#FB8B24",
+        "text_primary": "#1A1A1A",
+        "text_secondary": "#595959",
+        "border": "#E0E0E0",
+        "success": "#2A9D8F",
+        "error": "#E63946",
+        "card_bg": "#FFFFFF"
+      },
+      "dark": {
+        "background": "#121212",
+        "surface": "#1E1E1E",
+        "primary": "#187A91",
+        "secondary": "#E36414",
+        "accent": "#FB8B24",
+        "text_primary": "#FFFFFF",
+        "text_secondary": "#A0A0A0",
+        "border": "#333333",
+        "success": "#2A9D8F",
+        "error": "#EF476F",
+        "card_bg": "#1E1E1E"
+      },
+      "palette_description": "A grounded 'Swiss Utility' base (Teal/Charcoal) with 'Organic' accents (Terracotta/Maize). High contrast for readability."
+    },
+    "typography": {
+      "font_family": {
+        "headings": "System",
+        "body": "System",
+        "notes": "Prefer 'Space Grotesk' for headings and 'Inter' for body if custom fonts can be loaded. Otherwise, use system defaults (San Francisco/Roboto) with distinct weights."
+      },
+      "sizes": {
+        "xs": 12,
+        "sm": 14,
+        "base": 16,
+        "lg": 20,
+        "xl": 24,
+        "2xl": 30,
+        "3xl": 36,
+        "4xl": 48
+      },
+      "weights": {
+        "regular": "400",
+        "medium": "500",
+        "bold": "700",
+        "black": "900"
+      },
+      "line_heights": {
+        "tight": 1.1,
+        "normal": 1.5,
+        "relaxed": 1.75
+      }
+    },
+    "spacing": {
+      "xs": 4,
+      "sm": 8,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "2xl": 48,
+      "3xl": 64
+    },
+    "borders": {
+      "radius": {
+        "sm": 4,
+        "md": 8,
+        "lg": 16,
+        "xl": 24,
+        "full": 9999
+      },
+      "width": {
+        "thin": 1,
+        "thick": 2
+      }
+    },
+    "shadows": {
+      "sm": {
+        "shadowColor": "#000",
+        "shadowOffset": { "width": 0, "height": 1 },
+        "shadowOpacity": 0.05,
+        "shadowRadius": 2,
+        "elevation": 2
+      },
+      "md": {
+        "shadowColor": "#000",
+        "shadowOffset": { "width": 0, "height": 4 },
+        "shadowOpacity": 0.1,
+        "shadowRadius": 6,
+        "elevation": 4
+      },
+      "lg": {
+        "shadowColor": "#000",
+        "shadowOffset": { "width": 0, "height": 10 },
+        "shadowOpacity": 0.15,
+        "shadowRadius": 12,
+        "elevation": 8
+      }
+    }
+  },
+  "assets": {
+    "images": {
+      "first_aid": {
+        "url": "https://images.unsplash.com/photo-1611923973164-e0e5f7f69872?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Hands forming heart shape - symbolic for CPR/Care",
+        "category": "first_aid"
+      },
+      "finance": {
+        "url": "https://images.unsplash.com/photo-1763730512449-f1a505f432a9?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Writing in notebook with calculator",
+        "category": "finance"
+      },
+      "crisis_management": {
+        "url": "https://images.unsplash.com/photo-1769095211047-472fbd40f58d?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Girl in karate uniform - Self Defense",
+        "category": "crisis_management"
+      },
+      "civic_sense": {
+        "url": "https://images.unsplash.com/photo-1597700331582-aab3614b3c0c?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Woman casting ballot 1964 - Historical/Voting",
+        "category": "civic_sense"
+      },
+      "safety_tips": {
+        "url": "https://images.unsplash.com/photo-1770430724878-ef327337a9ae?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "alt": "Man in hard hat - Construction/Safety",
+        "category": "safety_tips"
+      }
+    },
+    "icons": {
+      "library": "@expo/vector-icons",
+      "set": "Feather",
+      "mapping": {
+        "home": "home",
+        "search": "search",
+        "bookmark": "bookmark",
+        "profile": "user",
+        "menu": "menu",
+        "back": "arrow-left",
+        "check": "check-circle",
+        "play": "play-circle"
+      }
+    }
+  },
+  "components": {
+    "Button": {
+      "style": "Swiss Pill",
+      "specs": {
+        "height": 56,
+        "borderRadius": 9999,
+        "paddingHorizontal": 32,
+        "justifyContent": "center",
+        "alignItems": "center",
+        "backgroundColor": "primary",
+        "typography": "text-lg font-bold"
+      },
+      "interaction": "Scale down slightly on press (0.98)"
+    },
+    "Card": {
+      "style": "Clean Surface",
+      "specs": {
+        "backgroundColor": "surface",
+        "borderRadius": 16,
+        "padding": 20,
+        "marginBottom": 16,
+        "borderWidth": 1,
+        "borderColor": "border"
+      },
+      "elevation": "sm"
+    },
+    "Input": {
+      "style": "Minimal Field",
+      "specs": {
+        "height": 56,
+        "backgroundColor": "background",
+        "borderRadius": 12,
+        "paddingHorizontal": 16,
+        "borderWidth": 1,
+        "borderColor": "border",
+        "fontSize": 16
+      }
+    }
+  },
+  "layout_guidelines": {
+    "safe_area": "ALWAYS use SafeAreaView or useSafeAreaInsets from react-native-safe-area-context.",
+    "grid_system": "Use Flexbox. For grids (like categories), use 'flexDirection: row', 'flexWrap: wrap', with 'width: 48%' items and 'gap'.",
+    "spacing_rule": "Use multiples of 8. Minimum padding for touch targets is 12px (p-3 equivalent).",
+    "containers": "Wrap main screen content in a container with 'flex: 1' and 'paddingHorizontal: 20' (generous side margins)."
+  },
+  "instructions_to_main_agent": [
+    "1. SYSTEM THEME: Respect the 'user_choices' for Auto theme. Use the `useColorScheme` hook from React Native to detect light/dark mode and apply colors from `design_system.colors`.",
+    "2. STYLING: You MUST use `StyleSheet.create()`. Do NOT use inline styles for complex objects. Organize styles at the bottom of the file.",
+    "3. NAVIGATION: Use `expo-router`. Create a file-based structure in `/app/frontend/app/`.",
+    "4. COMPONENTS: Build reusable components (Button, Card, ScreenWrapper) in `/app/frontend/components/` first, then compose pages.",
+    "5. DATA: Seed the MongoDB with the categories provided. Use the image URLs from `assets.images` for the seed data.",
+    "6. YOUTUBE: Use `react-native-webview` or a specialized YouTube component to render videos on the Topic Detail page.",
+    "7. TESTING: Add `testID` props to all interactive elements (buttons, inputs, list items) as 'category-card-finance', 'login-button', etc."
+  ],
+  "universal_guidelines": [
+    "Avoid 'AI Slop' - do not make everything centered. Use left alignment for text blocks.",
+    "Typography Hierarchy: Headings should be significantly larger (24px+) and bolder than body text (16px).",
+    "Touchable Areas: Ensure all buttons and list items have a minimum height of 48px for touch accessibility.",
+    "Loading States: Use Skeleton loaders or simple ActivityIndicators during data fetching.",
+    "Error States: specific UI for offline mode or API errors."
+  ]
+}
