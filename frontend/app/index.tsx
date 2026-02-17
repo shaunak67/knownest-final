@@ -49,7 +49,7 @@ export default function LoginScreen() {
   };
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: colors.primary }]}>
+    <SafeAreaView style={[styles.container, { backgroundColor: '#0A0A1A' }]}>
       <View style={styles.topSection}>
         <View style={styles.logoContainer}>
           <Image source={require('../assets/logo.png')} style={styles.logoImage} resizeMode="contain" />
