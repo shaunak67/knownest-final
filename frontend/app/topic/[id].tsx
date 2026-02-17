@@ -235,21 +235,44 @@ export default function TopicScreen() {
             </View>
           ) : (
             videos.map((video) => (
-              <TouchableOpacity
+              <View
                 key={video.video_id}
                 testID={`video-card-${video.video_id}`}
                 style={[styles.videoCard, { backgroundColor: colors.cardBg, borderColor: colors.border }]}
-                onPress={() => openVideo(video.video_id)}
-                activeOpacity={0.85}
               >
-                <View style={styles.thumbnailContainer}>
-                  <Image source={{ uri: video.thumbnail }} style={styles.thumbnail} />
-                  <View style={styles.playOverlay}>
-                    <View style={styles.playBtn}>
-                      <Feather name="play" size={20} color="#FFF" />
-                    </View>
+                {playingVideoId === video.video_id ? (
+                  <View style={styles.embedContainer}>
+                    {Platform.OS === 'web' ? (
+                      <iframe
+                        src={`https://www.youtube.com/embed/${video.video_id}?autoplay=1&rel=0`}
+                        style={{ width: '100%', height: '100%', border: 'none' }}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <WebView
+                        source={{ uri: `https://www.youtube.com/embed/${video.video_id}?autoplay=1&rel=0` }}
+                        style={{ flex: 1 }}
+                        allowsFullscreenVideo
+                        javaScriptEnabled
+                        mediaPlaybackRequiresUserAction={false}
+                      />
+                    )}
                   </View>
-                </View>
+                ) : (
+                  <TouchableOpacity
+                    style={styles.thumbnailContainer}
+                    onPress={() => setPlayingVideoId(video.video_id)}
+                    activeOpacity={0.85}
+                  >
+                    <Image source={{ uri: video.thumbnail }} style={styles.thumbnail} />
+                    <View style={styles.playOverlay}>
+                      <View style={styles.playBtn}>
+                        <Feather name="play" size={20} color="#FFF" />
+                      </View>
+                    </View>
+                  </TouchableOpacity>
+                )}
                 <View style={styles.videoInfo}>
                   <Text style={[styles.videoTitle, { color: colors.textPrimary }]} numberOfLines={2}>
                     {video.title}
@@ -261,7 +284,7 @@ export default function TopicScreen() {
                     {video.description}
                   </Text>
                 </View>
-              </TouchableOpacity>
+              </View>
             ))
           )}
         </View>
