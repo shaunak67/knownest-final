@@ -83,7 +83,7 @@ export default function HomeScreen() {
             <Text style={[styles.greeting, { color: colors.textSecondary }]}>
               {user ? `Hello, ${user.name.split(' ')[0]}` : 'Welcome to'}
             </Text>
-            <Text style={[styles.appTitle, { color: colors.textPrimary }]}>knownest</Text>
+            <Text style={[styles.appTitle, { color: colors.textPrimary }]}>KnowNest</Text>
           </View>
           <TouchableOpacity
             testID="home-search-btn"
