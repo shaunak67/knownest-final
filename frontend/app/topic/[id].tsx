@@ -129,9 +129,7 @@ export default function TopicScreen() {
     }
   };
 
-  const openVideo = (videoId: string) => {
-    Linking.openURL(`https://www.youtube.com/watch?v=${videoId}`);
-  };
+  const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
 
   const catColor = SLUG_COLORS[topic?.category_slug || ''] || colors.primary;
 
