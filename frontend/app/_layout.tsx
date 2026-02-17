@@ -12,8 +12,6 @@ export default function RootLayout() {
           <Stack.Screen name="index" />
           <Stack.Screen name="auth-callback" />
           <Stack.Screen name="(tabs)" />
-          <Stack.Screen name="category/[slug]" options={{ headerShown: false, presentation: 'card' }} />
-          <Stack.Screen name="topic/[id]" options={{ headerShown: false, presentation: 'card' }} />
         </Stack>
       </AuthProvider>
     </ThemeProvider>
