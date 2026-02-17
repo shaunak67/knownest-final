@@ -5,8 +5,14 @@ Tests: Categories, Topics, Search, Auth-gated Bookmarks, YouTube integration
 import pytest
 import requests
 import os
+from dotenv import load_dotenv
+from pathlib import Path
 
-BASE_URL = os.environ.get('EXPO_PUBLIC_BACKEND_URL').rstrip('/')
+# Load frontend env vars
+env_path = Path(__file__).parent.parent.parent / 'frontend' / '.env'
+load_dotenv(env_path)
+
+BASE_URL = os.environ['EXPO_PUBLIC_BACKEND_URL'].rstrip('/')
 
 class TestPublicEndpoints:
     """Test public API endpoints (no auth required)"""
