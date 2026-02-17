@@ -52,12 +52,8 @@ export default function LoginScreen() {
     <SafeAreaView style={[styles.container, { backgroundColor: colors.primary }]}>
       <View style={styles.topSection}>
         <View style={styles.logoContainer}>
-          <View style={[styles.logoCircle, { backgroundColor: colors.accent }]}>
-            <Feather name="book-open" size={40} color="#FFF" />
-          </View>
+          <Image source={require('../assets/logo.png')} style={styles.logoImage} resizeMode="contain" />
         </View>
-        <Text style={styles.appName}>KnowNest</Text>
-        <Text style={styles.tagline}>Essential knowledge{'\n'}for everyday life</Text>
       </View>
 
       <View style={[styles.bottomSection, { backgroundColor: colors.background }]}>
