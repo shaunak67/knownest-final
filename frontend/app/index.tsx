@@ -56,7 +56,7 @@ export default function LoginScreen() {
             <Feather name="book-open" size={40} color="#FFF" />
           </View>
         </View>
-        <Text style={styles.appName}>knowNest</Text>
+        <Text style={styles.appName}>knownest</Text>
         <Text style={styles.tagline}>Essential knowledge{'\n'}for everyday life</Text>
       </View>
 
