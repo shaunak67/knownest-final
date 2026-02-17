@@ -77,7 +77,7 @@ export default function ProfileScreen() {
         {[
           { icon: 'bookmark', label: 'Saved Topics', action: () => router.push('/(tabs)/bookmarks') },
           { icon: 'search', label: 'Search Topics', action: () => router.push('/(tabs)/search') },
-          { icon: 'info', label: 'About knowNest', action: () => {} },
+          { icon: 'info', label: 'About knownest', action: () => {} },
         ].map((item, i) => (
           <TouchableOpacity
             key={item.label}
