@@ -383,6 +383,13 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 180,
   },
+  embedContainer: {
+    width: '100%',
+    height: 220,
+    borderTopLeftRadius: 14,
+    borderTopRightRadius: 14,
+    overflow: 'hidden',
+  },
   thumbnail: {
     width: '100%',
     height: '100%',
