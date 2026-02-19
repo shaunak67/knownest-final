@@ -99,7 +99,18 @@ export default function TopicScreen() {
   };
 
   const toggleBookmark = async () => {
-    if (!isAuthenticated) return;
+    if (!isAuthenticated) {
+      if (Platform.OS === 'web') {
+        const shouldLogin = window.confirm('Sign in to save topics for offline access. Go to login?');
+        if (shouldLogin) router.push('/');
+      } else {
+        Alert.alert('Sign In Required', 'Sign in to save topics for offline access.', [
+          { text: 'Cancel', style: 'cancel' },
+          { text: 'Sign In', onPress: () => router.push('/') },
+        ]);
+      }
+      return;
+    }
     setBookmarkLoading(true);
     try {
       const token = await AsyncStorage.getItem('session_token');
