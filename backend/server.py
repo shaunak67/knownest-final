@@ -160,7 +160,10 @@ async def create_session(body: SessionIn, response: Response):
     )
 
     user_doc = await db.users.find_one({"user_id": user_id}, {"_id": 0})
-    return user_doc
+    # Include session_token in response body for frontend storage
+    result = dict(user_doc) if user_doc else {}
+    result["session_token"] = session_token
+    return result
 
 @api_router.get("/auth/me")
 async def auth_me(request: Request):
