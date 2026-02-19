@@ -26,12 +26,12 @@ print('User ID: ' + userId);
 
 ## Step 2: Test Backend API
 ```bash
-curl -X GET "https://essential-know.preview.emergentagent.com/api/auth/me" \
+curl -X GET "https://essential-know-test.preview.emergentagent.com/api/auth/me" \
   -H "Authorization: Bearer YOUR_SESSION_TOKEN"
 
-curl -X GET "https://essential-know.preview.emergentagent.com/api/categories"
+curl -X GET "https://essential-know-test.preview.emergentagent.com/api/categories"
 
-curl -X GET "https://essential-know.preview.emergentagent.com/api/bookmarks" \
+curl -X GET "https://essential-know-test.preview.emergentagent.com/api/bookmarks" \
   -H "Authorization: Bearer YOUR_SESSION_TOKEN"
 ```
 
@@ -46,7 +46,7 @@ await page.context.add_cookies([{
     "secure": True,
     "sameSite": "None"
 }]);
-await page.goto("https://essential-know.preview.emergentagent.com");
+await page.goto("https://essential-know-test.preview.emergentagent.com");
 ```
 
 ## Checklist
