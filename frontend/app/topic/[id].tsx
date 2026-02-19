@@ -180,20 +180,18 @@ export default function TopicScreen() {
           <Feather name="arrow-left" size={20} color={colors.textPrimary} />
         </TouchableOpacity>
         <View style={{ flex: 1 }} />
-        {isAuthenticated && (
-          <TouchableOpacity
-            testID="topic-bookmark-btn"
-            style={[styles.topBarBtn, { backgroundColor: isBookmarked ? catColor : colors.surface, borderColor: isBookmarked ? catColor : colors.border }]}
-            onPress={toggleBookmark}
-            disabled={bookmarkLoading}
-          >
-            {bookmarkLoading ? (
-              <ActivityIndicator size="small" color={isBookmarked ? '#FFF' : catColor} />
-            ) : (
-              <Feather name="bookmark" size={20} color={isBookmarked ? '#FFF' : colors.textPrimary} />
-            )}
-          </TouchableOpacity>
-        )}
+        <TouchableOpacity
+          testID="topic-bookmark-btn"
+          style={[styles.topBarBtn, { backgroundColor: isBookmarked ? catColor : colors.surface, borderColor: isBookmarked ? catColor : colors.border }]}
+          onPress={toggleBookmark}
+          disabled={bookmarkLoading}
+        >
+          {bookmarkLoading ? (
+            <ActivityIndicator size="small" color={isBookmarked ? '#FFF' : catColor} />
+          ) : (
+            <Feather name="bookmark" size={20} color={isBookmarked ? '#FFF' : colors.textPrimary} />
+          )}
+        </TouchableOpacity>
       </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
