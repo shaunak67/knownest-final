@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
-import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -18,17 +18,28 @@ export default function AuthCallback() {
       try {
         let sessionId: string | null = null;
 
-        // Try to get session_id from URL hash (web) or params
-        if (typeof window !== 'undefined' && window.location.hash) {
-          const hash = window.location.hash;
-          const match = hash.match(/session_id=([^&]+)/);
-          if (match) sessionId = match[1];
-        }
+        if (typeof window !== 'undefined') {
+          // Try hash fragment first: #session_id=xxx or #/session_id=xxx
+          const hash = window.location.hash || '';
+          const hashMatch = hash.match(/session_id=([^&]+)/);
+          if (hashMatch) {
+            sessionId = decodeURIComponent(hashMatch[1]);
+          }
 
-        if (!sessionId) {
-          // Try search params
-          const params = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
-          sessionId = params.get('session_id');
+          // Try query params: ?session_id=xxx
+          if (!sessionId) {
+            const searchParams = new URLSearchParams(window.location.search);
+            sessionId = searchParams.get('session_id');
+          }
+
+          // Try full URL parsing as fallback
+          if (!sessionId) {
+            const fullUrl = window.location.href;
+            const urlMatch = fullUrl.match(/session_id=([^&#]+)/);
+            if (urlMatch) {
+              sessionId = decodeURIComponent(urlMatch[1]);
+            }
+          }
         }
 
         if (sessionId) {
@@ -39,13 +50,16 @@ export default function AuthCallback() {
           }
         }
         
+        // No session_id found or login failed
         router.replace('/');
-      } catch {
+      } catch (err) {
+        console.error('Auth callback error:', err);
         router.replace('/');
       }
     };
 
-    processAuth();
+    // Small delay to ensure URL is fully loaded
+    setTimeout(processAuth, 300);
   }, []);
 
   return (
