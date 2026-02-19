@@ -74,18 +74,23 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       });
       if (!resp.ok) return null;
       const userData = await resp.json();
-      // Store session token from response headers or extract from cookie
-      const cookies = resp.headers.get('set-cookie');
-      if (cookies) {
-        const tokenMatch = cookies.match(/session_token=([^;]+)/);
-        if (tokenMatch) {
-          await AsyncStorage.setItem('session_token', tokenMatch[1]);
-        }
-      }
-      // Also try storing from the session_id exchange
+      
+      // Store session token from response body (primary method)
       if (userData.session_token) {
         await AsyncStorage.setItem('session_token', userData.session_token);
       }
+      
+      // Fallback: try from cookie header
+      if (!userData.session_token) {
+        const cookies = resp.headers.get('set-cookie');
+        if (cookies) {
+          const tokenMatch = cookies.match(/session_token=([^;]+)/);
+          if (tokenMatch) {
+            await AsyncStorage.setItem('session_token', tokenMatch[1]);
+          }
+        }
+      }
+      
       setUser(userData);
       return userData;
     } catch {
